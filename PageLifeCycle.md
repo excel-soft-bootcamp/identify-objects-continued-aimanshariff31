@@ -4,47 +4,62 @@ Then it is unloaded from the memory. At each of these steps, methods and events 
 Understanding the page cycle helps in writing codes for making some specific thing happen at any stage of the page life cycle.
 
  # Stages of LifeCycle are: #
-Initialization
-Instantiation of the controls on the page
-Restoration and maintenance of the state
-Execution of the event handler codes
-Page rendering
-ASP.NET Page Life Cycle Events
-PreInit - PreInit is the first event in page life cycle.
+1. Initialization
+2. Instantiation of the controls on the page
+3. Restoration and maintenance of the state
+4. Execution of the event handler codes
+5. Page rendering
 
-It checks the IsPostBack property and determines whether the page is a postback.
-It sets the themes and master pages, creates dynamic controls, and gets and sets profile property values.
-Init - Init event initializes the control property and the control tree is built.
+ ## Page Life Cycle Events
 
-During page initialization, controls on the page are available and each control's UniqueID property is set
-InitComplete - InitComplete event allows tracking of view state.
+### PreInit 
+* PreInit is the first event in page life cycle.
 
-All the controls turn on view-state tracking.
-LoadViewState - LoadViewState event allows loading view state information into the controls.
+* It checks the IsPostBack property and determines whether the page is a postback.
+* It sets the themes and master pages, creates dynamic controls, and gets and sets profile property values.
 
-LoadPostData - During this phase, the contents of all the input fields are defined with the
+### Init  
+* Init event initializes the control property and the control tree is built.
 
-tag are processed.
-PreLoad - PreLoad occurs before the post back data is loaded in the controls.
+* During page initialization, controls on the page are available and each control's UniqueID property is set
 
-This event can be handled by overloading the OnPreLoad method
-Load - The Load event is raised for the page first and then recursively for all child controls.
+### InitComplete  
+* InitComplete event allows tracking of view state.
 
-The controls in the control tree are created. This event can be handled by overloading the OnLoad method.
-We can call the validate method and verify that IsValid.
-LoadComplete - The loading process is completed, control event handlers are run, and page validation takes place.
+* All the controls turn on view-state tracking.
 
-This event can be handled by overloading the OnLoadComplete method
-PreRender - The PreRender event occurs just before the output is rendered.
+### LoadViewState  
+* LoadViewState event allows loading view state information into the controls.
 
-By handling this event, pages and controls can perform any updates before the output is rendered.
-PreRenderComplete - As the PreRender event is recursively fired for all child controls, this event ensures the completion of the pre-rendering phase.
+### LoadPostData  
+* During this phase, the contents of all the input fields are defined with the tag are processed.
+### PreLoad   
+* PreLoad occurs before the post back data is loaded in the controls.
 
-SaveStateComplete - State of control on the page is saved. Personalization, control state and view state information is saved.
+* This event can be handled by overloading the OnPreLoad method
+### Load  
+* The Load event is raised for the page first and then recursively for all child controls.
 
-The HTML markup is generated. This stage can be handled by overriding the Render method or creating a Page_Render handler.
-UnLoad - The UnLoad phase is the last phase of the page life cycle.
+* The controls in the control tree are created. This event can be handled by overloading the OnLoad method.
+* We can call the validate method and verify that IsValid.
+### LoadComplete  
+* The loading process is completed, control event handlers are run, and page validation takes place.
 
-It raises the UnLoad event for all controls recursively and lastly for the page itself.
-Final cleanup is done and all resources and references, such as database connections,Instances of classes,in other words objects.
-This event can be handled by modifying the OnUnLoad method or creating a Page_UnLoad handler.
+* This event can be handled by overloading the OnLoadComplete method
+### PreRender  
+* The PreRender event occurs just before the output is rendered.
+
+* By handling this event, pages and controls can perform any updates before the output is rendered.
+### PreRenderComplete  
+* As the PreRender event is recursively fired for all child controls, this event ensures the completion of the pre-rendering phase.
+
+### SaveStateComplete  
+* State of control on the page is saved. Personalization, control state and view state information is saved.
+
+* The HTML markup is generated. 
+* This stage can be handled by overriding the Render method or creating a Page_Render handler.
+### UnLoad - The UnLoad phase is the last phase of the page life cycle.
+
+* It raises the UnLoad event for all controls recursively and lastly for the page itself.
+* Final cleanup is done and all resources and references, such as database connections,Instances of classes,in other words objects.
+* This event can be handled by modifying the OnUnLoad method or creating a Page_UnLoad handler.
