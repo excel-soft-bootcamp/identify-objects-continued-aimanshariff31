@@ -15,7 +15,7 @@
 <asp:UpdatePanel ID="updatepnl" runat="server">  
 <ContentTemplate>
   <asp:TextBox ID="txt" runat="server" Text="Click" OnClick="Button1"/>
-  </ContentTemplate>  
+</ContentTemplate>  
 </asp:UpdatePanel> 
 
 ## The ScriptManager Control
