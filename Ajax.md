@@ -19,5 +19,5 @@ lbltotal.Text = "Showing time from outside" + time;
 ## The ScriptManager Control
 * The ScriptManager control  must be present on the page for other controls to work.
 ##### Syntax:-
-<asp:ScriptManager ID="ScriptManager1" runat="server">
+<asp:ScriptManager ID="Script1" runat="server">
 </asp:ScriptManager>
