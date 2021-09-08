@@ -50,8 +50,28 @@ url: "Home/About-WDI",
 defaults: new { controller = "Home", action = "About", id = UrlParameter.Optional }
 
 );
+
+# Action Result
+
+* Action Result is actually a data type. When it is used with action method, it is called return type
+* As the name depicts these results are used for returning the content to the browser. There are 7 types of content returning results:
+
+### View result
+public ViewResult Index()  
+{  
+    return View();  
+}  
       
-   
+ ### ContentResult
+     public ContentResult content()
+    {
+        return Content(
+        "<script> alert('Hi! I am from Mysore') </script>"
+            );
+    }
+  
+  ### RedirectionResult
+    public RedirectResult content() { return Redirect("https://www.google.com"); }
    
 
 
