@@ -21,6 +21,36 @@
                controller = "Home", action = "Index", id =
                UrlParameter.Optional});
       }
+      
+      
+      
+# Default Routing
+* The default ASP.NET MVC project templates add a generic route that uses the following URL convention to break the URL for a given request into three named segments
+* url: "{controller}/{action}/{id}"
+
+
+This route pattern is registered via call to the MapRoute() extension method of RouteCollection.
+
+// default Route
+
+routes.MapRoute(
+
+name: "Default",
+
+url: "{controller}/{action}/{id}",
+
+defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+
+routes.MapRoute(
+
+name: "about",
+
+url: "Home/About-WDI",
+
+defaults: new { controller = "Home", action = "About", id = UrlParameter.Optional }
+
+);
+      
    
    
 
